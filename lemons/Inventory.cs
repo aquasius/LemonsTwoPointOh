@@ -31,6 +31,8 @@ namespace lemons
                 Lemon lemon = new Lemon();
                 lemons.Add(lemon);
             }
+            Console.WriteLine("You now have: " + numberOfLemons + " added to your inventory");
+            
         }
 
         public void AddSugarCubesToInventory(int numberOfSugarCubes)
@@ -40,6 +42,7 @@ namespace lemons
                 SugarCube sugarCube = new SugarCube();
                 sugarCubes.Add(sugarCube);
             }
+            Console.WriteLine("You now have: " + numberOfSugarCubes + " in your inventory");
         }
 
         public void AddIceCubesToInventory(int numberOfIceCubes)

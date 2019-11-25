@@ -14,6 +14,7 @@ namespace lemons
         int currentDay;
         // int totalDays;
         Day day;
+        Store store;
         public Weather weather;
 
         // constructor
@@ -37,8 +38,8 @@ namespace lemons
             
             for(int i = 0; i < days.Count; i++)
             {
-                // display weather
-                // go to store
+                
+                    
                 days[i].RunDay();
                 Console.WriteLine(days[i].weather.condition);
 

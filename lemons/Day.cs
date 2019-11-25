@@ -15,7 +15,7 @@ namespace lemons
         public int dayTemp;
         public double dayCustomers;
         Player player;
-
+        
 
 
         //constructor

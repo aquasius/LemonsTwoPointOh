@@ -28,7 +28,13 @@ namespace lemons
 
 
         //member methods (can do)
-    
+        
+        public void DisplayStore()
+        {
+
+        }
+        
+        
         public void SellLemons(Player player)
         {
             int lemonsToPurchase = UserInterface.GetNumberOfItems("lemons");

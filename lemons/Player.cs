@@ -19,7 +19,7 @@ namespace lemons
         public Player()
         {
             wallet = new Wallet();
-            recipe = new Recipe();
+            //recipe = new Recipe();
             inventory = new Inventory();
 
         }
@@ -38,10 +38,10 @@ namespace lemons
     
         public void makeProfit()
         {
-            if(totalMoney > startDayMoney)
-            {
-                Console.WriteLine("Congratulations! You made " + days.profit);
-            }
+            //if(totalMoney > startDayMoney)
+            //{
+            //    Console.WriteLine("Congratulations! You made " + days.profit);
+            //}
         }
     
         public void createRecipe()
@@ -51,11 +51,11 @@ namespace lemons
     
         public void goBankrupt()
         {
-            if(totalMoney <= 0)
-            {
-                Console.WriteLine("Oh no! you ran out of funds!");
+            //if(totalMoney <= 0)
+            //{
+            //    Console.WriteLine("Oh no! you ran out of funds!");
 
-            }
+            //}
         }
 
         public void goToStore()

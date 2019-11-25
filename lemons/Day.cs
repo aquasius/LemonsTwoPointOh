@@ -26,7 +26,7 @@ namespace lemons
         //member methods(can do)
         public void generateWeather()
         {
-            
+            weather = new Weather();
         }
         
         public void generateCustomers()

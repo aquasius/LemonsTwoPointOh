@@ -9,11 +9,27 @@ namespace lemons
     class Wallet
     {
         //member variables(has a)
-        double cash;
-
+       private double money;
+       
 
         //constructor
+        public Wallet()
+        {
+            money = 20.00;
+        }
 
         //member methods (can do)
+        public void PayMoneyForItems(double transactionAmount)
+        {
+            money -= transactionAmount;
+        }
+
+        public double Money
+        {
+            get
+            {
+                return money;
+            }
+        }
     }
 }

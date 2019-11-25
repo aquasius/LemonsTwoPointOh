@@ -14,16 +14,23 @@ namespace lemons
         public string recipe;
         public int dayTemp;
         public double dayCustomers;
-
+        Player player;
 
 
 
         //constructor
 
-       
+        public Day()
+        {
+            generateWeather();
+        }
 
 
         //member methods(can do)
+        public void RunDay()
+        {
+
+        }
         public void generateWeather()
         {
             weather = new Weather();
@@ -35,9 +42,9 @@ namespace lemons
         }
 
 
-        public void makeProfit()
+        public int DisplayProfit(int )
         {
-
+            Console.WriteLine("Your profit for the day is: " + player.MakeProfit());
         }
 
         public void createRecipe()

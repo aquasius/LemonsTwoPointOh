@@ -14,14 +14,16 @@ namespace lemons
         public Wallet wallet;
         public Recipe recipe;
         public Pitcher pitcher;
-
+        public int profitMoney;
+        public int totalMoney;
+       
         //constructor
         public Player()
         {
             wallet = new Wallet();
             //recipe = new Recipe();
             inventory = new Inventory();
-
+            
         }
 
 
@@ -31,17 +33,27 @@ namespace lemons
 
         }
 
-        public void sellLemonade()
+        
+
+        public void SellLemonade()
         {
+
+
+
+            double startingMoney = wallet.Money;
+
 
         }
     
-        public void makeProfit()
+        public int MakeProfit(int profitMoney)
         {
+           
+            
             //if(totalMoney > startDayMoney)
             //{
-            //    Console.WriteLine("Congratulations! You made " + days.profit);
+            //    Console.WriteLine("Congratulations! You made " + player.MakeProfit);
             //}
+            //return profitMoney;
         }
     
         public void createRecipe()
@@ -51,7 +63,7 @@ namespace lemons
     
         public void goBankrupt()
         {
-            //if(totalMoney <= 0)
+            //if(Money <= 0)
             //{
             //    Console.WriteLine("Oh no! you ran out of funds!");
 

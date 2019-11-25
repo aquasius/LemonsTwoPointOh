@@ -10,6 +10,7 @@ namespace lemons
     {
         static void Main(string[] args)
         {
+            SugarCube sc = new SugarCube();
         }
     }
 }

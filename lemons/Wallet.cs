@@ -8,5 +8,12 @@ namespace lemons
 {
     class Wallet
     {
+        //member variables(has a)
+        double cash;
+
+
+        //constructor
+
+        //member methods (can do)
     }
 }

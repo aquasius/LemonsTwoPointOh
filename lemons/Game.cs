@@ -12,8 +12,9 @@ namespace lemons
         Player player;
         List<Day> days;
         int currentDay;
+        int totalDays;
         Day day;
-
+        public Weather weather;
 
         // constructor
 
@@ -22,12 +23,20 @@ namespace lemons
         //member methods (can do)
         public void runGame()
         {
-           
+            createDay();
+            //display weather temp, forecast, starting money total 
+            // display store
+            
+
+
+
+
+
         }
 
-        public List<Day> createDay()
+        public List<Day> CreateDay()
         {
-            days = new List<Day>; 
+            days = new List<Day>(); 
             for (int i = 1; i < totalDays; i++)
             {
                days.Add(new Day());

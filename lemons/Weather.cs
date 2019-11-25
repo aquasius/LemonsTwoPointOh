@@ -15,17 +15,55 @@ namespace lemons
         Random rand;
 
         //constructor
-        
+        public Weather()
+        {
+            CreateWeatherConditions();
+            CreateTemperature();
+        }
 
 
         //member methods (can do)
-        public int createTemperature()
+        public int CreateTemperature()
         {
-            temperature = rand.Next(60, 105);
+            if(condition == "Sunny")
+            {
+                temperature = rand.Next(60, 80);
+            }
+
+            else if(condition == "Rainy")
+            {
+                temperature = rand.Next(45, 70);
+            }
+
+            else if(condition == "Scorching Hot")
+            {
+                temperature = rand.Next(90, 105);
+            }
+            
+            else if(condition == "Cloudy")
+            {
+                temperature = rand.Next(50, 70);
+            }
+
+            else if(condition == "Humid")
+            {
+                temperature = rand.Next(75, 100);
+            }
+
+            else if(condition == "Storming")
+            {
+                temperature = rand.Next(45, 70);
+            }
+
+            else if(condition == "Windy")
+            {
+                temperature = rand.Next(55, 65);
+            }
+            temperature = rand.Next(40, 105);
             return temperature;
         }
 
-        public string createWeatherConditions()
+        public string CreateWeatherConditions()
         {
             weatherConditions = new string[7];
             weatherConditions[0] = "Sunny" ;

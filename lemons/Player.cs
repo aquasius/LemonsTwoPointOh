@@ -58,5 +58,11 @@ namespace lemons
             }
         }
 
+        public void goToStore()
+        {
+           //call display items function. Ask would you like to go to the store to buy more items? if yes 
+           // display store. If no, generate new day.
+
+        }
     }
 }

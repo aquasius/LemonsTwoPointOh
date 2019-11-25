@@ -8,5 +8,10 @@ namespace lemons
 {
     class Inventory
     {
+        //member variables(has a)
+
+        //constructor
+
+        //member methods (can do)
     }
 }

@@ -9,9 +9,13 @@ namespace lemons
     class Cup : Abstract_Item
     {
         //member variables (has a)
-        public string name;
+
 
         // constructor
+        public Cup()
+        {
+            name = "cup";
+        }
 
 
         //member methods (can do)

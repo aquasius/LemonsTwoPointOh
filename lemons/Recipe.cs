@@ -8,5 +8,10 @@ namespace lemons
 {
     class Recipe
     {
+        //member variables(has a)
+
+        //constructor
+
+        //member methods (can do)
     }
 }

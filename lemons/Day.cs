@@ -9,7 +9,7 @@ namespace lemons
     class Day
     {
         //member variables(has a)
-        public string weather;
+        public Weather weather;
         public int profit;
         public string recipe;
         public int dayTemp;
@@ -20,9 +20,28 @@ namespace lemons
 
         //constructor
 
+       
 
 
         //member methods(can do)
+        public void generateWeather()
+        {
+            
+        }
+        
+        public void generateCustomers()
+        {
 
+        }
+
+
+        public void makeProfit()
+        {
+
+        }
+
+        public void createRecipe()
+        { 
+        }
     }
 }

@@ -17,13 +17,27 @@ namespace lemons
 
 
         //constructor
+        public Store()
+        {
+            pricePerLemon = .5;
+            pricePerSugarCube = .1;
+            pricePerIceCube = .01;
+            pricePerCup = .25;
+
+        }
 
 
         //member methods (can do)
     
-        public void sellItem()
+        public void SellLemons(Player player)
         {
-
+            int lemonsToPurcase = UserInterface.GetNumberOfItems("lemons");
+            double transactionAmount = CalculateTransactionAmount(lemonsToPurchase, pricePerLemon);
+            if(Player.wallet.Money >= transactionAmount)
+            {
+                player.wallet.PayMoneyForItems(transactionAmount);
+                player.inventory.AddLemonsToInventory(lemonsToPurchase);
+            }
         }
     
     

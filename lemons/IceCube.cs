@@ -8,5 +8,15 @@ namespace lemons
 {
     class IceCube : Abstract_Item
     {
+        //member variables(has a)
+
+        //constructor
+        public IceCube()
+        {
+            name = "ice cube";
+        }
+
+        //member methods (can do)
     }
+
 }

@@ -8,5 +8,14 @@ namespace lemons
 {
     class Lemon : Abstract_Item
     {
+        //member variables(has a)
+
+        //constructor
+        public Lemon()
+        {
+            name = "lemon";
+        }
+
+        //member methods (can do)
     }
 }

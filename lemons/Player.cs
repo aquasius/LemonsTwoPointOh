@@ -14,7 +14,7 @@ namespace lemons
         public Wallet wallet;
         public Recipe recipe;
         public Pitcher pitcher;
-        public Store store;
+        
         public int profitMoney;
         public int totalMoney;
         double startingMoney;
@@ -29,38 +29,38 @@ namespace lemons
 
 
         //member methods (can do)
-        public void makeLemonade()
-        {
-
-        }
-
-        
-
         public void SellLemonade()
         {
-
-
+            SetPrice();
+            createRecipe();
 
             double startingMoney = wallet.Money;
 
 
         }
     
-        public void MakeProfit()
-        {
-
-        }
+       
         public void MadeProfit()
         {
            if(wallet.Money > startingMoney)
            {
-                Console.WriteLine("Congratulations! You made: " + player.MakeProfit);
+                double makeProfit = wallet.Money - startingMoney;
+                Console.WriteLine("Congratulations! You made: " + makeProfit);
            }
                 
         }
-    
-        public void createRecipe(Inventory inventory)
+
+        public void SetPrice()
         {
+
+        }
+    
+        public double createRecipe(Inventory inventory)
+        {
+            Console.WriteLine("What would you like to set your price per cup of lemonade to?");
+            double lemonadePrice = Convert.ToInt32(Console.ReadLine());
+
+            
             Console.WriteLine("How many Lemons would you like to put into your recipe today?");
             int lemonsInPitcher = Convert.ToInt32(Console.ReadLine());
             if (lemonsInPitcher >= inventory.lemons.Count)
@@ -86,6 +86,7 @@ namespace lemons
                 Console.WriteLine(iceCubesInPitcher + ": ice cubes now equal 1 pitcher");
 
             }
+            return lemonadePrice;
         }
     
         public void goBankrupt()
@@ -97,21 +98,7 @@ namespace lemons
             }
         }
 
-        public void goToStorePrompt()
-        {
-            Console.WriteLine("Would you like to visit the store to buy more items?");
-            string choice = Console.ReadLine().ToLower();
-
-            switch(choice)
-            {
-                case "yes":
-                    
-            }
-            
-                //call display items function. Ask would you like to go to the store to buy more items? if yes 
-           // display store. If no, generate new day.
-
-        }
+        
     
     
         public void RefillPitcher()

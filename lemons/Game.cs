@@ -20,7 +20,8 @@ namespace lemons
         // constructor
         public Game()
         {
-            
+            player = new Player();
+            store = new Store();
             // runGame();
         }
 
@@ -60,15 +61,38 @@ namespace lemons
             {
                days.Add(new Day());
             }
-            //weather.CreateWeatherConditions();
-            //weather.CreateTemperature();
             
+        }
+
+        public void goToStorePrompt()
+        {
+            Console.WriteLine("Would you like to visit the store to buy more items?");
+            string choice = Console.ReadLine().ToLower();
+
+            switch (choice)
+            {
+                case "yes":
+                    store.DisplayStore(player);
+                    break;
+
+                case "no":
+                    Inventory displayInventory = new Inventory();
+                    break;
+
+            }
+
+            //call display items function. Ask would you like to go to the store to buy more items? if yes 
+            // display store. If no, generate new day.
+
         }
 
         public void EndDay()
         {
-            player.MakeProfit();
-            day.DisplayProfit();
+            if (day.dayCustomers == 0)
+            {
+                player.MakeProfit();
+                day.DisplayProfit();
+            }
         }
         public void DisplayRules()
         {
@@ -81,6 +105,8 @@ namespace lemons
             int totalDays = Convert.ToInt32(Console.ReadLine());
             return totalDays;
         }
+
+       
 
     }
 }

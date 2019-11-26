@@ -14,7 +14,6 @@ namespace lemons
         public string recipe;
         public int dayTemp;
         public double dayCustomers;
-        Player player;
         
 
 
@@ -38,13 +37,44 @@ namespace lemons
         
         public void generateCustomers()
         {
+            if(weather.condition == "Sunny")
+            {
+                dayCustomers = 120;
+            }
 
+            else if(weather.condition == "Rainy")
+            {
+                dayCustomers = 40;
+            }
+
+            else if(weather.condition == "Scorching Hot")
+            {
+                dayCustomers = 100;
+            }
+        
+            else if(weather.condition == "Cloudy")
+            {
+                dayCustomers = 60;
+            }
+        
+            else if(weather.condition == "Humid")
+            {
+                dayCustomers = 80;
+            }
+        
+            else if(weather.condition == "Storming")
+            {
+                dayCustomers = 20;
+            }
+        
         }
 
 
-        public int DisplayProfit(int )
+
+        public int DisplayProfit()
         {
-            Console.WriteLine("Your profit for the day is: " + player.MakeProfit());
+            //Console.WriteLine("Your profit for the day is: " + player.MakeProfit());
+            return 0;
         }
 
         public void createRecipe()

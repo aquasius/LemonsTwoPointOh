@@ -24,16 +24,24 @@ namespace lemons
             pricePerIceCube = .01;
             pricePerCup = .25;
 
+            
         }
 
 
         //member methods (can do)
         
-        public void DisplayStore()
+        public void DisplayStore(Player player)
+        {
+            SellLemons(player);
+            SellSugarCubes(player);
+            SellIceCubes(player);
+            SellCups(player);
+        }
+        
+        public void SellLemonade()
         {
 
         }
-        
         
         public void SellLemons(Player player)
         {

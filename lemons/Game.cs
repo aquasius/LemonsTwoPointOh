@@ -33,12 +33,14 @@ namespace lemons
             DisplayRules();
             int totalDays = AmountOfDaysPrompt();
             CreateDay(totalDays);
-            // while customers = 0 || EndDay();
-            //display weather temp, forecast, starting money total 
-            // display store
+            
             
             for(int i = 0; i < days.Count; i++)
             {
+                // display money amount
+                // go to store
+                goToStorePrompt();
+                Console.WriteLine(player.wallet.Money);
                 
                     
                 days[i].RunDay();
@@ -76,7 +78,8 @@ namespace lemons
                     break;
 
                 case "no":
-                    Inventory displayInventory = new Inventory();
+                    // TODO: display inventory
+                    // reminder: player.inventory.lemons.Count
                     break;
 
             }
@@ -85,6 +88,15 @@ namespace lemons
             // display store. If no, generate new day.
 
         }
+
+        public void RefillLemonade()
+        {
+            if(cupsLeftInPitcher = 0)
+            {
+
+            }
+        }
+
 
         public void EndDay()
         {
@@ -106,7 +118,10 @@ namespace lemons
             return totalDays;
         }
 
-       
+        public void SetLemonadeCupPrice()
+        {
+            Console.WriteLine("");
+        }
 
     }
 }

@@ -14,7 +14,7 @@ namespace lemons
         public string recipe;
         public int dayTemp;
         public double dayCustomers;
-        
+        public List<Customer> customers;
 
 
         //constructor
@@ -69,6 +69,16 @@ namespace lemons
         
         }
 
+        public void CreateCustomer()
+        {
+
+            customers = new List<Customer>();
+            for (int i = 0; i < dayCustomers; i++)
+            {
+                customers.Add(new Customer(customers));
+            }
+
+        }
 
 
         public int DisplayProfit()

@@ -16,21 +16,10 @@ namespace lemons
         public Pitcher()
         {
             amountOfCupsInPitcher = 10;
+
         }
         //member methods (can do)
-    
-        public void PourACup()
-        {
-            foreach(Cup in Pitcher)
-        }
-
-        public void HoldCupsOfLemonade()
-        {
-            if (cupsLeftInPitcher = 0)
-            {
-
-            }
-        }
+        
     
     
     

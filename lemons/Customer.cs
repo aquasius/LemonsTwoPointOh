@@ -16,18 +16,18 @@ namespace lemons
         Random rnd = new Random();
         
         //constructor
-        public Customer()
+        public Customer(double priceOfLemonade, Weather weather, double customers)
         {
-            DetermineIfBuyLemonade();
             chanceToBuy = rnd.Next(1, 100);
+            DetermineIfBuyLemonade(priceOfLemonade, weather);
             
+
 
         }
 
         //member methods (can do)
         public bool DetermineIfBuyLemonade(double priceOfLemonade, Weather weather)
         {
-            int chanceToBuy = rnd.Next(1, 100);   
             if((weather.condition == "Sunny" && priceOfLemonade <= .27) && chanceToBuy <= 70)
             {
                 return true;
@@ -56,10 +56,20 @@ namespace lemons
             {
                 return true;
             }
+
+            else if((weather.condition == "Windy" && priceOfLemonade <= .25) && chanceToBuy <= 60)
+            {
+                return true;
+            }
+
             else
             {
                 return false;
             }
         }
+
+
+       
     }
+
 }

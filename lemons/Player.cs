@@ -31,7 +31,6 @@ namespace lemons
         //member methods (can do)
         public void SellLemonade()
         {
-            SetPrice();
             createRecipe();
 
             double startingMoney = wallet.Money;
@@ -52,7 +51,7 @@ namespace lemons
 
         public void SetPrice()
         {
-
+            
         }
     
         public double createRecipe(Inventory inventory)
@@ -101,10 +100,7 @@ namespace lemons
         
     
     
-        public void RefillPitcher()
-        {
-
-        }
+        
     
     }
 

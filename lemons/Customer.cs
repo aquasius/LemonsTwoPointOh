@@ -16,10 +16,10 @@ namespace lemons
         Random rnd = new Random();
         
         //constructor
-        public Customer(double priceOfLemonade, Weather weather, double customers)
+        public Customer()
         {
             chanceToBuy = rnd.Next(1, 100);
-            DetermineIfBuyLemonade(priceOfLemonade, weather);
+            // DetermineIfBuyLemonade(priceOfLemonade, weather);
             
 
 

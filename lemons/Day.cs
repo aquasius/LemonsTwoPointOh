@@ -75,7 +75,7 @@ namespace lemons
             customers = new List<Customer>();
             for (int i = 0; i < dayCustomers; i++)
             {
-                customers.Add(new Customer(customers));
+                customers.Add(new Customer());
             }
 
         }

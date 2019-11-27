@@ -29,14 +29,6 @@ namespace lemons
 
 
         //member methods (can do)
-        public void SellLemonade()
-        {
-            createRecipe();
-
-            double startingMoney = wallet.Money;
-
-
-        }
     
        
         public void MadeProfit()

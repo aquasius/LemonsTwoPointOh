@@ -11,11 +11,11 @@ namespace lemons
         //member variables( has a )
         Player player;
         List<Day> days;
-        int currentDay;
+        int currentDay; // TODO : make currentdays ++
         // int totalDays;
-        Day day;
+       
         Store store;
-        public Weather weather;
+      
 
         // constructor
         public Game()
@@ -66,6 +66,28 @@ namespace lemons
             
         }
 
+        public void SellLemonade()
+        {
+            double lemonadePrice = player.createRecipe(player.inventory);
+
+            double startingMoney = player.wallet.Money;
+            //TODO: implement MakePitcher()
+            player.pitcher.MakePitcher();
+
+            for (int i = 0; i < days[currentDay].dayCustomers; i++)
+            {
+                bool decisionToBuyLemonade = days[currentDay].customers[i].DetermineIfBuyLemonade(lemonadePrice, days[currentDay].weather);
+                if( decisionToBuyLemonade == true)
+                {
+                    player.wallet.AddMoneyToWallet(lemonadePrice);
+                }
+            }
+            
+
+        
+        
+        }
+
         public void goToStorePrompt()
         {
             Console.WriteLine("Would you like to visit the store to buy more items?");
@@ -100,11 +122,11 @@ namespace lemons
 
         public void EndDay()
         {
-            if (day.dayCustomers == 0)
-            {
-                player.MakeProfit();
-                day.DisplayProfit();
-            }
+            //if (day.dayCustomers == 0)
+            //{
+            //    player.MakeProfit();
+            //    day.DisplayProfit();
+            //}
         }
         public void DisplayRules()
         {

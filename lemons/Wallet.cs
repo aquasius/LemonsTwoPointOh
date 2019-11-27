@@ -9,8 +9,16 @@ namespace lemons
     class Wallet
     {
         //member variables(has a)
-       private double money;
-       
+        private double money;
+
+        public double Money
+        {
+            get
+            {
+                return money;
+            }
+        }
+
 
         //constructor
         public Wallet()
@@ -24,12 +32,9 @@ namespace lemons
             money -= transactionAmount;
         }
 
-        public double Money
+        public void AddMoneyToWallet(double saleAmount)
         {
-            get
-            {
-                return money;
-            }
+            money += saleAmount;
         }
     }
 }

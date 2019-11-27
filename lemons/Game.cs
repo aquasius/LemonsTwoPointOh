@@ -113,9 +113,9 @@ namespace lemons
 
         public void RefillLemonade()
         {
-            if(cupsLeftInPitcher = 0)
+            if(player.pitcher.CupsLeftInPitcher == 0)
             {
-
+                player.pitcher.FillPitcher();
             }
         }
 

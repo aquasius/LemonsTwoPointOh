@@ -10,21 +10,40 @@ namespace lemons
     {
         //member variables(has a)
         int amountOfCupsInPitcher;
-        int cupsLeftInPitcher;
         Cup cup;
+        int maxCupsInPitcher;
+        int cupsLeftInPitcher;
+        public int CupsLeftInPitcher
+        {
+            get
+            {
+                return cupsLeftInPitcher;
+            }
+            
+            set
+            {
+                cupsLeftInPitcher = 0;
+            }
+        }
+
+
         //constructor
         public Pitcher()
         {
-            amountOfCupsInPitcher = 10;
-
+            this.amountOfCupsInPitcher = 15;
+            this.cupsLeftInPitcher = 0;
         }
         //member methods (can do)
         
         public void MakePitcher()
         {
-           
+            maxCupsInPitcher = 10;   
         }
     
+        public void FillPitcher()
+        {
+            amountOfCupsInPitcher = maxCupsInPitcher;
+        }
     
     
     

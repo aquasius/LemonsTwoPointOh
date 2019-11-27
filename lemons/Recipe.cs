@@ -9,7 +9,9 @@ namespace lemons
     class Recipe
     {
         //member variables(has a)
-
+       public int lemonsInPitcher;
+       public int sugarCubesInPitcher;
+       public int iceCubesInPitcher;
         //constructor
 
         //member methods (can do)

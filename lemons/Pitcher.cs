@@ -37,12 +37,14 @@ namespace lemons
         
         public void MakePitcher()
         {
-            maxCupsInPitcher = 10;   
+            maxCupsInPitcher = 15;   
         }
     
         public void FillPitcher()
         {
             amountOfCupsInPitcher = maxCupsInPitcher;
+          
+           
         }
     
     

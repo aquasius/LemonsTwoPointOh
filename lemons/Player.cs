@@ -18,6 +18,10 @@ namespace lemons
         public int profitMoney;
         public int totalMoney;
         double startingMoney;
+        
+        
+
+
         //constructor
         public Player()
         {
@@ -50,31 +54,31 @@ namespace lemons
         {
             Console.WriteLine("What would you like to set your price per cup of lemonade to?");
             double lemonadePrice = Convert.ToInt32(Console.ReadLine());
-
+            //todo create methods
             
             Console.WriteLine("How many Lemons would you like to put into your recipe today?");
-            int lemonsInPitcher = Convert.ToInt32(Console.ReadLine());
-            if (lemonsInPitcher >= inventory.lemons.Count)
+                recipe.lemonsInPitcher = Convert.ToInt32(Console.ReadLine());
+            if (recipe.lemonsInPitcher >= inventory.lemons.Count)
             {
-                int lemonsLeftInInventory = inventory.lemons.Count - lemonsInPitcher;
-                Console.WriteLine(lemonsInPitcher + ": lemons now equal 1 pitcher of lemonade.");
+                int lemonsLeftInInventory = inventory.lemons.Count - recipe.lemonsInPitcher;
+                Console.WriteLine(recipe.lemonsInPitcher + ": lemons now equal 1 pitcher of lemonade.");
                 Console.WriteLine("you currently have: " + lemonsLeftInInventory + " left");
             }
 
             Console.WriteLine("How many Sugar Cubes would you like to add to your recipe today?");
-            int sugarCubesInPitcher = Convert.ToInt32(Console.ReadLine());
-            if(sugarCubesInPitcher >= inventory.sugarCubes.Count)
+               recipe.sugarCubesInPitcher = Convert.ToInt32(Console.ReadLine());
+            if(recipe.sugarCubesInPitcher >= inventory.sugarCubes.Count)
             {
-                int sugarCubesLeftInInventory = inventory.lemons.Count - sugarCubesInPitcher;
-                Console.WriteLine(sugarCubesInPitcher + ": cubes of sugar now equal 1 pitcher of lemonade");
+                int sugarCubesLeftInInventory = inventory.lemons.Count - recipe.sugarCubesInPitcher;
+                Console.WriteLine(recipe.sugarCubesInPitcher + ": cubes of sugar now equal 1 pitcher of lemonade");
                 Console.WriteLine("you currently have: " + sugarCubesLeftInInventory + " left");
             }
             Console.WriteLine("How many Ice Cubes would you like to put into your recipe today? ");
-            int iceCubesInPitcher = Convert.ToInt32(Console.ReadLine()); 
-            if(iceCubesInPitcher >= inventory.iceCubes.Count)
+              recipe.iceCubesInPitcher = Convert.ToInt32(Console.ReadLine()); 
+            if(recipe.iceCubesInPitcher >= inventory.iceCubes.Count)
             {
-                int iceCubesLeftInPitcher = inventory.iceCubes.Count - iceCubesInPitcher;
-                Console.WriteLine(iceCubesInPitcher + ": ice cubes now equal 1 pitcher");
+                int iceCubesLeftInPitcher = inventory.iceCubes.Count - recipe.iceCubesInPitcher;
+                Console.WriteLine(recipe.iceCubesInPitcher + ": ice cubes now equal 1 pitcher");
 
             }
             return lemonadePrice;

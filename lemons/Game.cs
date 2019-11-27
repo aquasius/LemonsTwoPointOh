@@ -111,11 +111,14 @@ namespace lemons
 
         }
 
-        public void RefillLemonade()
+        public void RefillPitcherOfLemonade()
         {
             if(player.pitcher.CupsLeftInPitcher == 0)
             {
                 player.pitcher.FillPitcher();
+                player.inventory.lemons.RemoveRange(0, player.recipe.lemonsInPitcher);
+                player.inventory.sugarCubes.RemoveRange(0, player.recipe.sugarCubesInPitcher);
+                player.inventory.iceCubes.RemoveRange(0, player.recipe.iceCubesInPitcher);
             }
         }
 

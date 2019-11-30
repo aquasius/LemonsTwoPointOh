@@ -11,6 +11,7 @@ namespace lemons
         //member variables( has a )
         Player player;
         List<Day> days;
+        
         int currentDay; // TODO : make currentdays ++
         // int totalDays;
        
@@ -37,14 +38,13 @@ namespace lemons
             
             for(int i = 0; i < days.Count; i++)
             {
-                // display money amount
-                // go to store
+                DisplayUsersMoney();
                 goToStorePrompt();
                 Console.WriteLine(player.wallet.Money);
                 
-                    
                 days[i].RunDay();
                 Console.WriteLine(days[i].weather.condition);
+                SellLemonade();
 
 
 
@@ -66,25 +66,28 @@ namespace lemons
             
         }
 
-        public void SellLemonade()
+        public void DisplayUsersMoney()
         {
-            double lemonadePrice = player.createRecipe(player.inventory);
+            Console.WriteLine(player.wallet.Money);
+        }
 
+        public double SellLemonade()
+        {
+            double salePriceOfLemonade = player.SetPrice();
             double startingMoney = player.wallet.Money;
-            //TODO: implement MakePitcher()
             player.pitcher.MakePitcher();
 
             for (int i = 0; i < days[currentDay].dayCustomers; i++)
             {
-                bool decisionToBuyLemonade = days[currentDay].customers[i].DetermineIfBuyLemonade(lemonadePrice, days[currentDay].weather);
+                bool decisionToBuyLemonade = days[currentDay].customers[i].DetermineIfBuyLemonade(salePriceOfLemonade, days[currentDay].weather);
                 if( decisionToBuyLemonade == true)
                 {
-                    player.wallet.AddMoneyToWallet(lemonadePrice);
+                    player.wallet.AddMoneyToWallet(salePriceOfLemonade);
                 }
             }
             
 
-        
+            return salePriceOfLemonade;
         
         }
 
@@ -100,8 +103,10 @@ namespace lemons
                     break;
 
                 case "no":
-                    // TODO: display inventory
-                    // reminder: player.inventory.lemons.Count
+                    Console.WriteLine("You currently have: " + player.inventory.lemons.Count + " in your inventory.");
+                    Console.WriteLine("There are currently: " + player.inventory.sugarCubes.Count + " remaining in your inventory");
+                    Console.WriteLine(player.inventory.iceCubes.Count);
+                    Console.WriteLine(player.inventory.cups.Count);
                     break;
 
             }
@@ -120,16 +125,23 @@ namespace lemons
                 player.inventory.sugarCubes.RemoveRange(0, player.recipe.sugarCubesInPitcher);
                 player.inventory.iceCubes.RemoveRange(0, player.recipe.iceCubesInPitcher);
             }
+        
+            else if((player.inventory.lemons.Count < player.recipe.lemonsInPitcher) && player.inventory.sugarCubes.Count < player.recipe.sugarCubesInPitcher && player.inventory.iceCubes.Count < player.recipe.iceCubesInPitcher)
+            {
+                Console.WriteLine("You have an insufficient amount of items to make another pitcher");
+                //EndDay();
+            }
+        
         }
 
 
         public void EndDay()
         {
-            //if (day.dayCustomers == 0)
-            //{
-            //    player.MakeProfit();
-            //    day.DisplayProfit();
-            //}
+            if (days[i].dayCustomers == 0)
+            {
+                player.MakeProfit();
+                day.DisplayProfit();
+            }
         }
         public void DisplayRules()
         {
@@ -143,10 +155,7 @@ namespace lemons
             return totalDays;
         }
 
-        public void SetLemonadeCupPrice()
-        {
-            Console.WriteLine("");
-        }
+        
 
     }
 }

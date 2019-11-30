@@ -87,8 +87,6 @@ namespace lemons
             return 0;
         }
 
-        public void createRecipe()
-        { 
-        }
+        
     }
 }

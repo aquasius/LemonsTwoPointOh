@@ -12,8 +12,8 @@ namespace lemons
         Player player;
         List<Day> days;
         
-        int currentDay; // TODO : make currentdays ++
-        // int totalDays;
+        int currentDay;
+        
        
         Store store;
       
@@ -21,12 +21,13 @@ namespace lemons
         // constructor
         public Game()
         {
+            currentDay = 0;
             player = new Player();
             store = new Store();
-            // runGame();
+           
         }
 
-        // I left figuring out where to put my list of days.
+        
         //member methods (can do)
         public void runGame()
         {
@@ -34,19 +35,23 @@ namespace lemons
             DisplayRules();
             int totalDays = AmountOfDaysPrompt();
             CreateDay(totalDays);
-            
+            Console.ReadLine();
             
             for(int i = 0; i < days.Count; i++)
             {
                 DisplayUsersMoney();
-                goToStorePrompt();
                 Console.WriteLine(player.wallet.Money);
+                GoToStorePrompt();
+                Console.WriteLine("Your day is starting with " + player.inventory.lemons.Count + " lemons.");
+                Console.WriteLine("You have " + player.inventory.sugarCubes.Count + " sugar cubes in your inventory.");
+                Console.WriteLine("You have " + player.inventory.iceCubes.Count + " ice cubes.");
+                Console.WriteLine("Wallet: " + player.wallet.Money);
                 
                 days[i].RunDay();
-                Console.WriteLine(days[i].weather.condition);
+                Console.WriteLine("Today's weather is: " + days[i].weather.condition);
                 SellLemonade();
-
-
+                RefillPitcherOfLemonade();
+                
 
             }
 
@@ -68,7 +73,7 @@ namespace lemons
 
         public void DisplayUsersMoney()
         {
-            Console.WriteLine(player.wallet.Money);
+            Console.WriteLine("Wallet: " + player.wallet.Money);
         }
 
         public double SellLemonade()
@@ -91,7 +96,7 @@ namespace lemons
         
         }
 
-        public void goToStorePrompt()
+        public void GoToStorePrompt()
         {
             Console.WriteLine("Would you like to visit the store to buy more items?");
             string choice = Console.ReadLine().ToLower();
@@ -103,10 +108,10 @@ namespace lemons
                     break;
 
                 case "no":
-                    Console.WriteLine("You currently have: " + player.inventory.lemons.Count + " in your inventory.");
-                    Console.WriteLine("There are currently: " + player.inventory.sugarCubes.Count + " remaining in your inventory");
-                    Console.WriteLine(player.inventory.iceCubes.Count);
-                    Console.WriteLine(player.inventory.cups.Count);
+                    Console.WriteLine("You currently have " + player.inventory.lemons.Count + " in your inventory.");
+                    Console.WriteLine("There are currently " + player.inventory.sugarCubes.Count + " remaining in your inventory");
+                    Console.WriteLine("You have " + player.inventory.iceCubes.Count + "ice cubes");
+                    Console.WriteLine("You have " + player.inventory.cups.Count + " in your inventory");
                     break;
 
             }
@@ -128,8 +133,8 @@ namespace lemons
         
             else if((player.inventory.lemons.Count < player.recipe.lemonsInPitcher) && player.inventory.sugarCubes.Count < player.recipe.sugarCubesInPitcher && player.inventory.iceCubes.Count < player.recipe.iceCubesInPitcher)
             {
-                Console.WriteLine("You have an insufficient amount of items to make another pitcher");
-                //EndDay();
+                Console.WriteLine("You have an insufficient amount of items to make another pitcher. The day has ended");
+                EndDay();
             }
         
         }
@@ -137,11 +142,15 @@ namespace lemons
 
         public void EndDay()
         {
-            if (days[i].dayCustomers == 0)
+            double amountOfProfit = player.wallet.Money - player.startingMoney;
+
+
+            if (days[currentDay].dayCustomers == 0)
             {
-                player.MakeProfit();
-                day.DisplayProfit();
+                Console.WriteLine("Today you made a total of: " + amountOfProfit);
+                currentDay++;
             }
+            
         }
         public void DisplayRules()
         {

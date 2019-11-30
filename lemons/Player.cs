@@ -17,7 +17,7 @@ namespace lemons
         
         public int profitMoney;
         public int totalMoney;
-        double startingMoney;
+        public double startingMoney;
         
         
 
@@ -35,12 +35,13 @@ namespace lemons
         //member methods (can do)
     
        
-        public void MadeProfit()
+        public void MakeProfit()
         {
            if(wallet.Money > startingMoney)
            {
-                double makeProfit = wallet.Money - startingMoney;
-                Console.WriteLine("Congratulations! You made: " + makeProfit);
+                double madeAProfit = wallet.Money - startingMoney;
+                Console.WriteLine("Congratulations! You made: " + madeAProfit);
+                
            }
                 
         }

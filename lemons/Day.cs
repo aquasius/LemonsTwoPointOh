@@ -21,21 +21,23 @@ namespace lemons
 
         public Day()
         {
-            generateWeather();
+            GenerateWeather();
         }
 
 
         //member methods(can do)
         public void RunDay()
         {
+            CreateCustomer();
+            GenerateCustomers();
 
         }
-        public void generateWeather()
+        public void GenerateWeather()
         {
             weather = new Weather();
         }
         
-        public void generateCustomers()
+        public void GenerateCustomers()
         {
             if(weather.condition == "Sunny")
             {
@@ -81,11 +83,7 @@ namespace lemons
         }
 
 
-        public int DisplayProfit()
-        {
-            //Console.WriteLine("Your profit for the day is: " + player.MakeProfit());
-            return 0;
-        }
+        
 
         
     }

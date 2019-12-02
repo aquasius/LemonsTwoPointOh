@@ -24,7 +24,7 @@ namespace lemons
             currentDay = 0;
             player = new Player();
             store = new Store();
-            
+           
         }
 
         
@@ -46,10 +46,11 @@ namespace lemons
                 Console.WriteLine("You have " + player.inventory.sugarCubes.Count + " sugar cubes in your inventory.");
                 Console.WriteLine("You have " + player.inventory.iceCubes.Count + " ice cubes.");
                 Console.WriteLine("Wallet: " + player.wallet.Money);
-                
+                Console.ReadLine();
+                player.CreateRecipe();
                 days[i].RunDay();
-               // Console.WriteLine("Today's weather is: " + days[i].weather.condition);
                 SellLemonade();
+                player.MakeProfit();
                 RefillPitcherOfLemonade();
                 
 
@@ -78,21 +79,24 @@ namespace lemons
 
         public double SellLemonade()
         {
-            double salePriceOfLemonade = player.SetPrice();
+            
             double startingMoney = player.wallet.Money;
-            player.pitcher.MakePitcher();
+            player.pitcher.FillPitcher();
 
             for (int i = 0; i < days[currentDay].dayCustomers; i++)
             {
-                bool decisionToBuyLemonade = days[currentDay].customers[i].DetermineIfBuyLemonade(salePriceOfLemonade, days[currentDay].weather);
+                bool decisionToBuyLemonade = days[currentDay].customers[i].DetermineIfBuyLemonade(player.lemonadePrice, days[currentDay].weather);
                 if( decisionToBuyLemonade == true)
                 {
-                    player.wallet.AddMoneyToWallet(salePriceOfLemonade);
+                    player.wallet.AddMoneyToWallet(player.lemonadePrice);
+                    player.pitcher.amountOfCupsInPitcher--;
+                   // player.inventory.cups.RemoveRange(0, 1);
                 }
+              
             }
             
 
-            return salePriceOfLemonade;
+            return player.lemonadePrice;
         
         }
 
@@ -123,19 +127,26 @@ namespace lemons
 
         public void RefillPitcherOfLemonade()
         {
-            if(player.pitcher.CupsLeftInPitcher == 0)
+            if ((player.inventory.lemons.Count < player.recipe.lemonsInPitcher) && player.inventory.sugarCubes.Count < player.recipe.sugarCubesInPitcher && player.inventory.iceCubes.Count < player.recipe.iceCubesInPitcher && player.inventory.cups < player.pitcher.amountOfCupsInPitcher)
+            {
+                Console.WriteLine("You have an insufficient amount of items to make another pitcher. The day has ended");
+                EndDay();
+
+            }
+            else if (player.pitcher.CupsLeftInPitcher == 0)
             {
                 player.pitcher.FillPitcher();
                 player.inventory.lemons.RemoveRange(0, player.recipe.lemonsInPitcher);
                 player.inventory.sugarCubes.RemoveRange(0, player.recipe.sugarCubesInPitcher);
                 player.inventory.iceCubes.RemoveRange(0, player.recipe.iceCubesInPitcher);
+                player.inventory.cups.RemoveRange(0, 15);
+                Console.WriteLine("You currently have " + player.inventory.lemons.Count + " lemons in your inventory.");
+                Console.WriteLine("There are currently " + player.inventory.sugarCubes.Count + " sugar cubes remaining in your inventory");
+                Console.WriteLine("You have " + player.inventory.iceCubes.Count + "ice cubes");
+                Console.WriteLine("You have " + player.inventory.cups.Count + " cups in your inventory");
             }
         
-            else if((player.inventory.lemons.Count < player.recipe.lemonsInPitcher) && player.inventory.sugarCubes.Count < player.recipe.sugarCubesInPitcher && player.inventory.iceCubes.Count < player.recipe.iceCubesInPitcher)
-            {
-                Console.WriteLine("You have an insufficient amount of items to make another pitcher. The day has ended");
-                EndDay();
-            }
+            
         
         }
 

@@ -18,8 +18,9 @@ namespace lemons
         //constructor
         public Customer()
         {
+            rnd = new Random();
             chanceToBuy = rnd.Next(1, 100);
-            // DetermineIfBuyLemonade(priceOfLemonade, weather);
+           
             
 
 
@@ -28,6 +29,7 @@ namespace lemons
         //member methods (can do)
         public bool DetermineIfBuyLemonade(double priceOfLemonade, Weather weather)
         {
+            
             if((weather.condition == "Sunny" && priceOfLemonade <= .27) && chanceToBuy <= 70)
             {
                 return true;

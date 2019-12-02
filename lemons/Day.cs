@@ -28,9 +28,8 @@ namespace lemons
         //member methods(can do)
         public void RunDay()
         {
-            CreateCustomer();
             GenerateCustomers();
-
+            CreateCustomer();
         }
         public void GenerateWeather()
         {
@@ -69,6 +68,10 @@ namespace lemons
                 dayCustomers = 20;
             }
         
+            else if(weather.condition == "Windy")
+            {
+                dayCustomers = 45;
+            }
         }
 
         public void CreateCustomer()

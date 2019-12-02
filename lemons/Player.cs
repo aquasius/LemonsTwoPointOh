@@ -14,7 +14,8 @@ namespace lemons
         public Wallet wallet;
         public Recipe recipe;
         public Pitcher pitcher;
-        
+        public double lemonadePrice;
+
         public int profitMoney;
         public int totalMoney;
         public double startingMoney;
@@ -49,7 +50,7 @@ namespace lemons
         public double SetPrice()
         {
             Console.WriteLine("What would you like to set your price per cup of lemonade to?");
-            double lemonadePrice = Convert.ToDouble(Console.ReadLine());
+            lemonadePrice = Convert.ToDouble(Console.ReadLine());
             return lemonadePrice;
         }
     

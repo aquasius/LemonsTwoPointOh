@@ -15,8 +15,11 @@ namespace lemons
         Random rand;
 
         //constructor
+        
+        
         public Weather()
         {
+            rand = new Random();
             CreateWeatherConditions();
             CreateTemperature();
         }

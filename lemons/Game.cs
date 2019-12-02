@@ -13,7 +13,7 @@ namespace lemons
         List<Day> days;
         
         int currentDay;
-        
+        Pitcher pitcher;
        
         Store store;
       
@@ -24,7 +24,7 @@ namespace lemons
             currentDay = 0;
             player = new Player();
             store = new Store();
-           
+            
         }
 
         
@@ -40,7 +40,7 @@ namespace lemons
             for(int i = 0; i < days.Count; i++)
             {
                 DisplayUsersMoney();
-                Console.WriteLine(player.wallet.Money);
+                Console.WriteLine("Today's weather is: " + days[i].weather.condition + " and the temperature is: " + days[i].weather.temperature);
                 GoToStorePrompt();
                 Console.WriteLine("Your day is starting with " + player.inventory.lemons.Count + " lemons.");
                 Console.WriteLine("You have " + player.inventory.sugarCubes.Count + " sugar cubes in your inventory.");
@@ -48,7 +48,7 @@ namespace lemons
                 Console.WriteLine("Wallet: " + player.wallet.Money);
                 
                 days[i].RunDay();
-                Console.WriteLine("Today's weather is: " + days[i].weather.condition);
+               // Console.WriteLine("Today's weather is: " + days[i].weather.condition);
                 SellLemonade();
                 RefillPitcherOfLemonade();
                 
@@ -108,10 +108,10 @@ namespace lemons
                     break;
 
                 case "no":
-                    Console.WriteLine("You currently have " + player.inventory.lemons.Count + " in your inventory.");
-                    Console.WriteLine("There are currently " + player.inventory.sugarCubes.Count + " remaining in your inventory");
+                    Console.WriteLine("You currently have " + player.inventory.lemons.Count + " lemons in your inventory.");
+                    Console.WriteLine("There are currently " + player.inventory.sugarCubes.Count + " sugar cubes remaining in your inventory");
                     Console.WriteLine("You have " + player.inventory.iceCubes.Count + "ice cubes");
-                    Console.WriteLine("You have " + player.inventory.cups.Count + " in your inventory");
+                    Console.WriteLine("You have " + player.inventory.cups.Count + " cups in your inventory");
                     break;
 
             }

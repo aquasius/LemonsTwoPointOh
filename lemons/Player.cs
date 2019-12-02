@@ -9,7 +9,7 @@ namespace lemons
     class Player
     {
        //member variables(has a)
-        public string name;
+       // public string name;
         public Inventory inventory;
         public Wallet wallet;
         public Recipe recipe;
@@ -26,9 +26,9 @@ namespace lemons
         public Player()
         {
             wallet = new Wallet();
-            //recipe = new Recipe();
+            pitcher = new Pitcher();
             inventory = new Inventory();
-            
+            recipe = new Recipe();    
         }
 
 
@@ -49,7 +49,7 @@ namespace lemons
         public double SetPrice()
         {
             Console.WriteLine("What would you like to set your price per cup of lemonade to?");
-            double lemonadePrice = Convert.ToInt32(Console.ReadLine());
+            double lemonadePrice = Convert.ToDouble(Console.ReadLine());
             return lemonadePrice;
         }
     

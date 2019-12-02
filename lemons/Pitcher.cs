@@ -32,6 +32,8 @@ namespace lemons
         {
             this.amountOfCupsInPitcher = 15;
             this.cupsLeftInPitcher = 0;
+            MakePitcher();
+            FillPitcher();
         }
         //member methods (can do)
         

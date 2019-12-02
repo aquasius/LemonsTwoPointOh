@@ -53,6 +53,13 @@ namespace lemons
                 player.wallet.PayMoneyForItems(transactionAmount);
                 player.inventory.AddLemonsToInventory(lemonsToPurchase);
             }
+
+            else if (player.wallet.Money <= transactionAmount)
+            {
+                Console.WriteLine("You do not have enough to purchase this amount. Please enter an affordable amount");
+                SellLemons(player);
+            }
+
         }
     
         public void SellSugarCubes(Player player)
@@ -64,6 +71,13 @@ namespace lemons
                 PerformTransaction(player.wallet, transactionAmount);
                 player.inventory.AddSugarCubesToInventory(sugarToPurchase);
             }
+
+            else if(player.wallet.Money <= transactionAmount)
+            {
+                Console.WriteLine("You do not have enough to purchase this amount. Please enter an affordable amount");
+                SellSugarCubes(player);
+            }
+
         }
 
         public void SellIceCubes(Player player)
@@ -75,6 +89,13 @@ namespace lemons
                 PerformTransaction(player.wallet, transactionAmount);
                 player.inventory.AddIceCubesToInventory(iceCubesToPurchase);
             }
+
+            else if (player.wallet.Money <= transactionAmount)
+            {
+                Console.WriteLine("You do not have enough to purchase this amount. Please enter an affordable amount");
+                SellIceCubes(player);
+            }
+
         }
 
         public void SellCups(Player player)
@@ -86,6 +107,13 @@ namespace lemons
                 PerformTransaction(player.wallet, transactionAmount);
                 player.inventory.AddCupsToInventory(cupsToPurchase);
             }
+
+            else if (player.wallet.Money <= transactionAmount)
+            {
+                Console.WriteLine("You do not have enough to purchase this amount. Please enter an affordable amount");
+                SellCups(player);
+            }
+
         }
 
         private double CalculateTransactionAmount(int itemCount, double itemPricePerUnit)

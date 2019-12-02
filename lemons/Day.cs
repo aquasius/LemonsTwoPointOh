@@ -78,9 +78,10 @@ namespace lemons
         {
 
             customers = new List<Customer>();
+            Random rand = new Random();
             for (int i = 0; i < dayCustomers; i++)
             {
-                customers.Add(new Customer());
+                customers.Add(new Customer(rand));
             }
 
         }

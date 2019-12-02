@@ -30,39 +30,39 @@ namespace lemons
         {
             if(condition == "Sunny")
             {
-                temperature = rand.Next(60, 80);
+                this.temperature = rand.Next(60, 80);
             }
 
             else if(condition == "Rainy")
             {
-                temperature = rand.Next(45, 70);
+                this.temperature = rand.Next(45, 70);
             }
 
             else if(condition == "Scorching Hot")
             {
-                temperature = rand.Next(90, 105);
+                this.temperature = rand.Next(90, 105);
             }
             
             else if(condition == "Cloudy")
             {
-                temperature = rand.Next(50, 70);
+                this.temperature = rand.Next(50, 70);
             }
 
             else if(condition == "Humid")
             {
-                temperature = rand.Next(75, 100);
+                this.temperature = rand.Next(75, 100);
             }
 
             else if(condition == "Storming")
             {
-                temperature = rand.Next(45, 70);
+                this.temperature = rand.Next(45, 70);
             }
 
             else if(condition == "Windy")
             {
-                temperature = rand.Next(55, 65);
+                this.temperature = rand.Next(55, 65);
             }
-            temperature = rand.Next(40, 105);
+            //temperature = rand.Next(40, 105);
             return temperature;
         }
 

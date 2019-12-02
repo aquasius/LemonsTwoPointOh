@@ -50,8 +50,8 @@ namespace lemons
                 player.CreateRecipe();
                 days[i].RunDay();
                 SellLemonade();
-                player.MakeProfit();
                 RefillPitcherOfLemonade();
+                player.MakeProfit();
                 
 
             }
@@ -81,7 +81,7 @@ namespace lemons
         {
             
             double startingMoney = player.wallet.Money;
-            player.pitcher.FillPitcher();
+            FillPitcher();
 
             for (int i = 0; i < days[currentDay].dayCustomers; i++)
             {
@@ -90,9 +90,9 @@ namespace lemons
                 {
                     player.wallet.AddMoneyToWallet(player.lemonadePrice);
                     player.pitcher.amountOfCupsInPitcher--;
-                   // player.inventory.cups.RemoveRange(0, 1);
+                   
                 }
-              
+               
             }
             
 
@@ -100,7 +100,7 @@ namespace lemons
         
         }
 
-        public void GoToStorePrompt()
+        public void GoToStorePrompt() // - Single responsibility principle. This simply prompts the user to either go to the store or not. Seeing as that is this methods only responsibility of prompting the user this was my choice for S.
         {
             Console.WriteLine("Would you like to visit the store to buy more items?");
             string choice = Console.ReadLine().ToLower();
@@ -118,6 +118,9 @@ namespace lemons
                     Console.WriteLine("You have " + player.inventory.cups.Count + " cups in your inventory");
                     break;
 
+                default: Console.WriteLine("That is not a valid answer. Please type yes or no"); GoToStorePrompt();
+                    break;
+
             }
 
             //call display items function. Ask would you like to go to the store to buy more items? if yes 
@@ -125,29 +128,46 @@ namespace lemons
 
         }
 
-        public void RefillPitcherOfLemonade()
+        public void FillPitcher()
         {
-            if ((player.inventory.lemons.Count < player.recipe.lemonsInPitcher) && player.inventory.sugarCubes.Count < player.recipe.sugarCubesInPitcher && player.inventory.iceCubes.Count < player.recipe.iceCubesInPitcher && player.inventory.cups < player.pitcher.amountOfCupsInPitcher)
-            {
-                Console.WriteLine("You have an insufficient amount of items to make another pitcher. The day has ended");
-                EndDay();
+           if ((player.inventory.lemons.Count < player.recipe.lemonsInPitcher) && player.inventory.sugarCubes.Count < player.recipe.sugarCubesInPitcher && player.inventory.iceCubes.Count < player.recipe.iceCubesInPitcher && player.inventory.cups.Count < player.pitcher.amountOfCupsInPitcher)
+                {
+                    Console.WriteLine("You have an insufficient amount of items to make another pitcher. The day has ended");
+                    EndDay();
 
-            }
-            else if (player.pitcher.CupsLeftInPitcher == 0)
-            {
-                player.pitcher.FillPitcher();
+           }
+            
+           else if ((player.inventory.lemons.Count >= player.recipe.lemonsInPitcher) && player.inventory.sugarCubes.Count >= player.recipe.sugarCubesInPitcher && player.inventory.iceCubes.Count >= player.recipe.iceCubesInPitcher && player.inventory.cups.Count >= player.pitcher.amountOfCupsInPitcher)
+           {
+                player.pitcher.amountOfCupsInPitcher = player.pitcher.maxCupsInPitcher;
                 player.inventory.lemons.RemoveRange(0, player.recipe.lemonsInPitcher);
                 player.inventory.sugarCubes.RemoveRange(0, player.recipe.sugarCubesInPitcher);
                 player.inventory.iceCubes.RemoveRange(0, player.recipe.iceCubesInPitcher);
+           }
+
+        }
+
+
+        public void RefillPitcherOfLemonade()
+        {
+            
+            if (player.pitcher.CupsLeftInPitcher == 0 && player.inventory.cups.Count >= player.pitcher.maxCupsInPitcher)
+            {
+                FillPitcher();
                 player.inventory.cups.RemoveRange(0, 15);
                 Console.WriteLine("You currently have " + player.inventory.lemons.Count + " lemons in your inventory.");
                 Console.WriteLine("There are currently " + player.inventory.sugarCubes.Count + " sugar cubes remaining in your inventory");
                 Console.WriteLine("You have " + player.inventory.iceCubes.Count + "ice cubes");
                 Console.WriteLine("You have " + player.inventory.cups.Count + " cups in your inventory");
             }
-        
-            
-        
+
+            else if ((player.inventory.lemons.Count < player.recipe.lemonsInPitcher) && player.inventory.sugarCubes.Count < player.recipe.sugarCubesInPitcher && player.inventory.iceCubes.Count < player.recipe.iceCubesInPitcher && player.inventory.cups.Count < player.pitcher.amountOfCupsInPitcher)
+            {
+                Console.WriteLine("You have an insufficient amount of items to make another pitcher. The day has ended");
+                EndDay();
+
+            }
+
         }
 
 

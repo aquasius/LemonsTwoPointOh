@@ -8,7 +8,7 @@ namespace lemons
 {
     static class UserInterface
     {
-        public static int GetNumberOfItems(string itemsToGet)
+        public static int GetNumberOfItems(string itemsToGet) // - interface segregation principle. This was given to us in starter code, but this is used to split information that only has meaning to the user.
         {
             bool userInputIsAnInteger = false;
             int quantityOfItem = -1;

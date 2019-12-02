@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace lemons
 {
-    class Lemon : Abstract_Item
+    class Lemon : Abstract_Item     
     {
         //member variables(has a)
 

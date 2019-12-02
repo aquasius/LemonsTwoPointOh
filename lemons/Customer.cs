@@ -13,16 +13,13 @@ namespace lemons
         public string name;
         public double chanceToBuy;
         public int customerToBuy;
-        Random rnd = new Random();
+        Random rnd;
         
         //constructor
-        public Customer()
+        public Customer(Random rand)
         {
-            rnd = new Random();
+            rnd = rand;
             chanceToBuy = rnd.Next(1, 100);
-           
-            
-
 
         }
 
@@ -30,7 +27,7 @@ namespace lemons
         public bool DetermineIfBuyLemonade(double priceOfLemonade, Weather weather)
         {
             
-            if((weather.condition == "Sunny" && priceOfLemonade <= .27) && chanceToBuy <= 70)
+            if((weather.condition == "Sunny" && priceOfLemonade <= .27) && chanceToBuy >= 60)
             {
                 return true;
             }
@@ -40,26 +37,26 @@ namespace lemons
                 return true;
             }
             
-            else if((weather.condition == "Scorching Hot" && priceOfLemonade <= .30) && chanceToBuy <= 65)
+            else if((weather.condition == "Scorching Hot" && priceOfLemonade <= .30) && chanceToBuy >= 65)
             {
                 return true;
             }
 
-            else if((weather.condition == "Cloudy" && priceOfLemonade <= .25) && chanceToBuy <= 60)
+            else if((weather.condition == "Cloudy" && priceOfLemonade <= .25) && chanceToBuy >= 60)
             {
                 return true;
             }
-            else if((weather.condition == "Humid" && priceOfLemonade <= .28) && chanceToBuy <= 72)
+            else if((weather.condition == "Humid" && priceOfLemonade <= .28) && chanceToBuy >=72)
             {
                 return true;
             }
             
-            else if((weather.condition == "Storming" && priceOfLemonade <= .22) && chanceToBuy <= 30)
+            else if((weather.condition == "Storming" && priceOfLemonade <= .22) && weather.temperature > 57 && chanceToBuy <= 22)
             {
                 return true;
             }
 
-            else if((weather.condition == "Windy" && priceOfLemonade <= .25) && chanceToBuy <= 60)
+            else if((weather.condition == "Windy" && priceOfLemonade <= .25) && chanceToBuy >= 60)
             {
                 return true;
             }

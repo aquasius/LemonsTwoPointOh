@@ -11,7 +11,7 @@ namespace lemons
         static void Main(string[] args)
         {
             Game game = new Game();
-            game.runGame();
+            game.RunGame();
             Console.ReadLine();
         }
     }

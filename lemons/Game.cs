@@ -29,7 +29,7 @@ namespace lemons
 
         
         //member methods (can do)
-        public void runGame()
+        public void RunGame()
         {
 
             DisplayRules();
@@ -52,10 +52,9 @@ namespace lemons
                 SellLemonade();
                 RefillPitcherOfLemonade();
                 player.MakeProfit();
-                
 
             }
-
+                EndGame();
 
 
 
@@ -114,7 +113,7 @@ namespace lemons
                 case "no":
                     Console.WriteLine("You currently have " + player.inventory.lemons.Count + " lemons in your inventory.");
                     Console.WriteLine("There are currently " + player.inventory.sugarCubes.Count + " sugar cubes remaining in your inventory");
-                    Console.WriteLine("You have " + player.inventory.iceCubes.Count + "ice cubes");
+                    Console.WriteLine("You have " + player.inventory.iceCubes.Count + " ice cubes");
                     Console.WriteLine("You have " + player.inventory.cups.Count + " cups in your inventory");
                     break;
 
@@ -195,7 +194,28 @@ namespace lemons
             return totalDays;
         }
 
-        
+        public void EndGame()
+        {
+            Console.WriteLine("You made it to the end! You made a total of: " + player.wallet.Money);
+            
+            Console.WriteLine("Would you like to try to beat your high score?");
+            string answer = Console.ReadLine();
+
+            switch(answer)
+            {
+                case "yes":
+                        RunGame();
+                    break;
+
+                case "no":
+                    Console.WriteLine("Thank you for playing!");
+                    break;
+
+                default:
+                    Console.WriteLine("Please type in a valid entry"); EndGame();
+                    break;
+            }
+        }
 
     }
 }

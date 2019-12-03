@@ -12,21 +12,21 @@ namespace lemons
         public string condition;
         public int temperature;
         public string[] weatherConditions;
-        Random rand;
 
         //constructor
         
         
-        public Weather()
+        public Weather(Random rand)
         {
-            rand = new Random();
-            CreateWeatherConditions();
-            CreateTemperature();
+            // rand = new Random();
+            CreateWeatherConditions(rand);
+           
+            CreateTemperature(rand);
         }
 
 
         //member methods (can do)
-        public int CreateTemperature()
+        public int CreateTemperature(Random rand)
         {
             if(condition == "Sunny")
             {
@@ -55,18 +55,18 @@ namespace lemons
 
             else if(condition == "Storming")
             {
-                temperature = rand.Next(45, 70);
+                temperature = rand.Next(50, 70);
             }
 
             else if(condition == "Windy")
             {
                 temperature = rand.Next(55, 65);
             }
-            temperature = rand.Next(40, 105);
+            temperature = rand.Next(50, 105);
             return temperature;
         }
 
-        public string CreateWeatherConditions()
+        public string CreateWeatherConditions(Random rand)
         {
             weatherConditions = new string[7];
             weatherConditions[0] = "Sunny" ;
@@ -76,8 +76,8 @@ namespace lemons
             weatherConditions[4] = "Humid";
             weatherConditions[5] = "Storming";
             weatherConditions[6] = "Windy";
-            int randomizeCondition = rand.Next(weatherConditions.Length);
-            condition = weatherConditions[randomizeCondition];
+            //int randomizeCondition = rand.Next(weatherConditions.Length);
+            condition = weatherConditions[rand.Next(weatherConditions.Length)];
             return condition;
         }
     }

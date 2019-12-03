@@ -19,9 +19,9 @@ namespace lemons
 
         //constructor
 
-        public Day()
+        public Day(Random rand)
         {
-            GenerateWeather();
+            GenerateWeather(rand);
         }
 
 
@@ -31,9 +31,9 @@ namespace lemons
             GenerateCustomers();
             CreateCustomer();
         }
-        public void GenerateWeather()
+        public void GenerateWeather(Random rand)
         {
-            weather = new Weather();
+            weather = new Weather(rand);
         }
         
         public void GenerateCustomers()

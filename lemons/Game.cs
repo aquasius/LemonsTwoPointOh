@@ -16,7 +16,9 @@ namespace lemons
         Pitcher pitcher;
        
         Store store;
-      
+        Random rand;
+
+
 
         // constructor
         public Game()
@@ -24,7 +26,7 @@ namespace lemons
             currentDay = 0;
             player = new Player();
             store = new Store();
-           
+            rand = new Random();
         }
 
         
@@ -66,7 +68,7 @@ namespace lemons
             days = new List<Day>(); 
             for (int i = 0; i < totalDays; i++)
             {
-               days.Add(new Day());
+               days.Add(new Day(rand));
             }
             
         }

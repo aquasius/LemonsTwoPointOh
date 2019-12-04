@@ -198,13 +198,15 @@ namespace lemons
 
         public void EndGame()
         {
-            Console.WriteLine("You made it to the end! You made a total of: " + player.wallet.Money);
             
-            Console.WriteLine("Would you like to try to beat your high score?");
-            string answer = Console.ReadLine();
+             
+              Console.WriteLine("You made it to the end! You made a total of: " + player.wallet.Money);
+            
+              Console.WriteLine("Would you like to try to beat your high score?");
+              string answer = Console.ReadLine();
 
-            switch(answer)
-            {
+               switch(answer)
+               {
                 case "yes":
                         RunGame();
                     break;
@@ -216,8 +218,19 @@ namespace lemons
                 default:
                     Console.WriteLine("Please type in a valid entry"); EndGame();
                     break;
-            }
+               
+        
+               }
+        
         }
 
+    
+    
+    
+    
     }
+
+
+
+
 }
